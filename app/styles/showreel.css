@@ -1,0 +1,53 @@
+/* ─── Showreel Section ───────────────────────────────────────────────────── */
+.showreel-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--color-black-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.showreel__content {
+    text-align: center;
+}
+
+.showreel__title {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: -3px;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+}
+
+.showreel__subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Видео отчётных концертов */
+.showreel__video-wrap {
+    margin: 2.5rem auto 0;
+    width: min(1100px, 90vw);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+    background-color: #000;
+    line-height: 0;
+}
+
+.showreel__video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background-color: #000;
+}

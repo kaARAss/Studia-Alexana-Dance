@@ -1,0 +1,623 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   МОБИЛЬНАЯ ОПТИМИЗАЦИЯ
+   Все правила заперты внутри медиа-запросов для узких и сенсорных экранов,
+   поэтому вид сайта на компьютере не меняется ни на пиксель.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+    /* ── Общее: убираем горизонтальную прокрутку и автоувеличение шрифта ── */
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    img,
+    svg,
+    video,
+    iframe {
+        max-width: 100%;
+    }
+
+    /* ── Первый экран с роликом ── */
+    .vimeo-hero {
+        width: calc(100% - 16px);
+        height: calc(100svh - 16px);
+    }
+
+    .vimeo-hero__iframe {
+        min-height: 100svh;
+        min-width: 177.78svh;
+    }
+
+    .home-header__title {
+        padding: 0 18px;
+    }
+
+    .vimeo-hero__title {
+        font-size: clamp(1.9rem, 10.5vw, 3.2rem);
+        line-height: 1.05;
+    }
+
+    .vimeo-hero__controls {
+        gap: 10px;
+    }
+
+    /* Кнопки под палец, а не под курсор */
+    .vimeo-hero__btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    /* ── Шапка ── */
+    .navbar {
+        padding: 10px 12px;
+    }
+
+    .logo-truus {
+        width: 92px;
+        height: auto;
+    }
+
+    .logo-work-container {
+        width: 42px;
+        height: 38px;
+    }
+
+    .logo-work-text {
+        font-size: 1.05rem;
+        margin-left: 44px;
+    }
+
+    .nav-right {
+        gap: 8px !important;
+    }
+
+    .nav-social-btn {
+        min-width: 38px;
+        min-height: 38px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-social-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .nav-bar__whatsapp-svg {
+        width: 24px;
+    }
+
+    /* ── Блок с веером фотографий ── */
+    .motion-card__heading {
+        max-width: 100%;
+        padding: 0 18px;
+    }
+
+    .motion-card__title {
+        font-size: 2.4rem;
+    }
+
+    .motion-card__subtitle {
+        font-size: 2.5rem;
+    }
+
+    .motion-card__underline-svg {
+        max-width: 260px;
+    }
+
+    .motion-card__sticker--top {
+        width: 84px !important;
+        height: 46px !important;
+        right: -4px !important;
+        top: -26px !important;
+    }
+
+    .motion-card__cards-area {
+        height: 64vw;
+        max-width: 100%;
+    }
+
+    .motion-card__card {
+        width: 34vw;
+        height: 44vw;
+    }
+
+    .motion-card__blob {
+        width: 92vw;
+        height: 58vw;
+    }
+
+    /* ── Блок с бегущими словами ── */
+    .horizontal-words-section {
+        height: 72svh;
+    }
+
+    .horizontal-words__relative {
+        padding-left: 15vw;
+        padding-right: 15vw;
+    }
+
+    .horizontal-words__h2 {
+        font-size: 16vw;
+    }
+
+    .horizontal-words__bottom-text {
+        width: 90vw;
+        transform: translate(-50%, 5.5em);
+    }
+
+    .horizontal-words__bottom-text-l {
+        font-size: 0.98rem;
+    }
+
+    .horizontal-words__sticker-watch {
+        width: 3.6em !important;
+    }
+
+    .horizontal-words__sticker-cursor {
+        width: 4.4em !important;
+    }
+
+    .horizontal-words__sticker-phone {
+        width: 4.6em !important;
+    }
+
+    .horizontal-words__arrow-svg {
+        width: 12em;
+    }
+
+    .horizontal-words__arrow-end-svg {
+        width: 5em;
+    }
+
+    /* ── Тёмный блок ── */
+    .showreel-section {
+        min-height: 70svh;
+    }
+
+    .showreel__title {
+        font-size: 2.4rem;
+        letter-spacing: -1.5px;
+    }
+
+    .showreel__subtitle {
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    /* ── Карточки направлений ── */
+    .card {
+        padding: 2.2rem 1.2rem 1.2rem;
+    }
+
+    .card-list li {
+        font-size: 1rem;
+    }
+
+    /* ── Подвал ── */
+    .footer-inner {
+        min-height: auto;
+    }
+
+    .footer-bottom {
+        margin-top: 90px;
+    }
+}
+
+/* ═══ Сенсорные экраны: всё, что рассчитано на мышь, только мешает ═══ */
+@media (hover: none) and (pointer: coarse) {
+
+    /* Свой курсор и пузырёк со звуком пальцем не наводятся */
+    .cursor-bubble,
+    .vimeo-mute-bubble {
+        display: none !important;
+    }
+
+    /* Выпадающие меню шапки открываются наведением, на телефоне они
+       только перекрывают экран невидимыми блоками */
+    .nav-popout,
+    .nav-overlay {
+        display: none !important;
+    }
+
+    /* Картинки курсоров прописаны прямо в разметке — снимаем */
+    * {
+        cursor: auto !important;
+    }
+
+    /* Невидимая зона наведения у карточек ловила касания мимо цели */
+    .card::after {
+        display: none;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Вторая волна: по живым скриншотам с телефона
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+    /* Шапка была прозрачной, и весь текст проезжал сквозь неё при прокрутке */
+    .navbar.on-light {
+        background: var(--bg-color);
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+    }
+
+    /* Над тёмным видео фон не нужен — там светлый текст */
+    .navbar.on-dark {
+        background: transparent;
+        box-shadow: none;
+    }
+
+    /* Слово «студия» и надпись truus рядом не влезают и налезали друг на друга */
+    .nav-center {
+        display: none !important;
+    }
+
+    /* ── Блок бегущих слов обычным блоком ── */
+    .horizontal-words-section.is-mobile-static {
+        height: auto !important;
+        padding: 80px 0 50px;
+        overflow: hidden;
+    }
+
+    .is-mobile-static .horizontal-words__relative {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none !important;
+        white-space: normal;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 18px;
+    }
+
+    .is-mobile-static .horizontal-words__h2 {
+        font-size: 13vw;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .is-mobile-static .horizontal-words__bottom-text {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none !important;
+        width: 100%;
+        margin-top: 26px;
+    }
+
+    /* Стрелки и стикеры расставлены под длинную строку — в столбик они попадают на текст */
+    .is-mobile-static .horizontal-words__arrow-svg,
+    .is-mobile-static .horizontal-words__arrow-end-svg,
+    .is-mobile-static .horizontal-words__placeholder-left-svg,
+    .is-mobile-static .horizontal-words__sticker-watch,
+    .is-mobile-static .horizontal-words__sticker-cursor,
+    .is-mobile-static .horizontal-words__sticker-phone {
+        display: none !important;
+    }
+
+    /* ── Заголовок блока с фото не должен упираться в шапку ── */
+    .motion-card-section {
+        padding-top: 80px;
+    }
+
+    .motion-card__title {
+        font-size: 2.1rem;
+    }
+
+    .motion-card__subtitle {
+        font-size: 2.2rem;
+    }
+
+    .motion-card__sticker--top {
+        width: 70px !important;
+        height: 40px !important;
+        right: 0 !important;
+        top: -34px !important;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Третья волна: первый экран и сдвиг страницы вбок
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+    /* При загрузке страницу уводило вбок: запрещаем горизонтальный сдвиг целиком */
+    html {
+        overflow-x: hidden;
+        overscroll-behavior-x: none;
+        max-width: 100%;
+    }
+
+    body {
+        max-width: 100%;
+        overscroll-behavior-x: none;
+    }
+
+    /* ── Заголовок на видео ──
+       Стикеры (смайлик и звёздочка) расставлены в долях размера шрифта,
+       поэтому меньший заголовок сам втягивает их обратно в экран. */
+    .home-header__title {
+        bottom: 92px;
+        padding: 0 22px;
+    }
+
+    .vimeo-hero__title {
+        font-size: clamp(1.6rem, 8.2vw, 2.5rem);
+        letter-spacing: -1px;
+        line-height: 1.06;
+    }
+
+    /* Кнопки паузы и полного экрана были вплотную к тексту */
+    .vimeo-hero__controls {
+        bottom: 20px;
+        left: 20px;
+    }
+}
+
+
+/* ─── Волна 4: штора, заголовок карточек, перенос слов, список карточек ─── */
+@media (max-width: 768px) {
+
+    /* 1. Рисованный штрих подменён полноэкранной шторой */
+    .transition-scribble {
+        display: none !important;
+    }
+
+    /* 2. Заголовок блока с фотографиями больше не наезжает сам на себя */
+    .motion-card__title {
+        font-size: 1.95rem !important;
+        letter-spacing: -1px !important;
+        line-height: 1.05 !important;
+    }
+
+    .motion-card__subtitle {
+        font-size: 1.95rem !important;
+        line-height: 1.15 !important;
+        letter-spacing: 0 !important;
+        top: 0 !important;
+        display: block !important;
+        margin-top: 4px !important;
+    }
+
+    /* 3. Перенос целыми словами */
+    .is-mobile-static .horizontal-words__h2 {
+        font-size: 10.5vw !important;
+        line-height: 1.02 !important;
+        word-spacing: 0.12em;
+    }
+
+    .is-mobile-static .letter-space {
+        display: none !important;
+    }
+
+    .hw-word {
+        display: inline-block;
+        white-space: nowrap;
+        margin-right: 0.26em;
+    }
+
+    /* 4. Карточки направлений: обычный список, ничего не залипает */
+    .cards-wrapper.cards-mobile-static {
+        position: relative;
+        height: auto !important;
+        max-width: 100%;
+        margin: 30px auto 50px !important;
+        padding: 0 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .cards-mobile-static .card {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        max-width: 340px;
+        height: auto !important;
+        min-height: 330px;
+        z-index: auto !important;
+    }
+}
+
+
+/* ─── Волна 5: бегущая лента логотипов и мгновенный показ текста ─── */
+@media (max-width: 768px) {
+
+    /* Шрифты: показываем текст сразу системным начертанием,
+       а не держим надписи пустыми до загрузки файла шрифта */
+    @font-face {
+        font-family: 'DM Sans';
+        src: url('/fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+        font-weight: 100 900;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Epilogue';
+        src: url('/fonts/Epilogue-VariableFont_wght.ttf') format('truetype');
+        font-weight: 100 900;
+        font-display: swap;
+    }
+
+    /* Лента: вместо статичной сетки — две строки, едущие навстречу */
+    .marquee-right {
+        display: flex !important;
+        flex-direction: column;
+        gap: 8px;
+        position: relative;
+        left: 50%;
+        margin-left: -50vw !important;
+        margin-right: 0 !important;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        height: auto;
+        overflow: hidden !important;
+        padding: 20px 0 32px !important;
+    }
+
+    .marquee-column {
+        display: block !important;
+        width: 100%;
+        overflow: hidden !important;
+    }
+
+    .marquee-column::before,
+    .marquee-column::after {
+        display: none !important;
+    }
+
+    .marquee-column .marquee-track {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 0 !important;
+        width: max-content;
+        will-change: transform;
+        /* движение задаёт GSAP из DoubleMarquee.jsx: marqueeJsRibbon */
+        animation: none !important;
+    }
+
+    .marquee-right .marquee-item {
+        width: 118px !important;
+        height: 118px !important;
+        flex: 0 0 118px !important;
+        margin: 0 8px 0 0 !important;
+    }
+
+    .marquee-right .marquee-column {
+        height: 118px !important;
+        flex: none !important;
+    }
+
+    /* 6. Меньше пустоты между текстом и блоком с фото */
+    .horizontal-words-section.is-mobile-static {
+        padding: 70px 0 0 !important;
+    }
+
+    .is-mobile-static .horizontal-words__bottom-text {
+        margin-top: 16px !important;
+        margin-bottom: 0 !important;
+    }
+
+    .motion-card-section {
+        padding-top: 26px !important;
+    }
+
+    /* 7. Стикеры в подвале: меньше штук и без кучи */
+    .footer-sticker.sticker-heart,
+    .footer-sticker.sticker-hands,
+    .footer-sticker.sticker-100 {
+        display: none !important;
+    }
+
+    .footer-sticker.sticker-boom {
+        left: 2% !important;
+        right: auto !important;
+        bottom: 30% !important;
+        width: 92px !important;
+    }
+
+    .footer-sticker.sticker-smiley {
+        left: 38% !important;
+        right: auto !important;
+        bottom: 7% !important;
+        width: 88px !important;
+    }
+
+    .footer-sticker.sticker-camera {
+        right: 3% !important;
+        left: auto !important;
+        bottom: 27% !important;
+        width: 88px !important;
+    }
+
+    /* 8. Ровная прокрутка: браузер не пересчитывает высоту из-за своих панелей */
+    .cards-mobile-static .card,
+    .marquee-right .marquee-track {
+        backface-visibility: hidden;
+        transform-style: flat;
+    }
+}
+
+/* ═══ Волна 9: фото в рамке — только на компьютере ═══ */
+@media (max-width: 768px) {
+    .marquee-photo {
+        display: none !important;
+    }
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   ВОЛНА 10 — ПОЛОСА ПРОКРУТКИ НА КОМПЬЮТЕРЕ
+   В исходном шаблоне полоса была полностью спрятана. Возвращаем её
+   только для широких экранов и оформляем в цветах сайта.
+   На телефоне полоса не нужна — там она остаётся скрытой.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+@media (min-width: 769px) {
+
+    html {
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-orange, #f5693c) rgba(26, 26, 26, 0.07);
+        -ms-overflow-style: auto;
+    }
+
+    body {
+        scrollbar-width: thin;
+        -ms-overflow-style: auto;
+    }
+
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+        display: block;
+        width: 12px;
+    }
+
+    html::-webkit-scrollbar-track,
+    body::-webkit-scrollbar-track {
+        background: rgba(26, 26, 26, 0.07);
+    }
+
+    html::-webkit-scrollbar-thumb,
+    body::-webkit-scrollbar-thumb {
+        background-color: var(--color-orange, #f5693c);
+        border-radius: 999px;
+        border: 3px solid var(--bg-color, #f0ebe6);
+    }
+
+    html::-webkit-scrollbar-thumb:hover,
+    body::-webkit-scrollbar-thumb:hover {
+        background-color: var(--color-dark, #1a1a1a);
+    }
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+   ВОЛНА 11 — СТРЕЛКА У РУКИ СМОТРИТ ВНИЗ (только телефон)
+   В шаблоне стрелка развёрнута на 190° и зеркально отражена — именно поэтому
+   на телефоне остриё смотрело вверх, а развёрнутый контур залезал на ленту.
+   Возвращаем рисунку родную ориентацию: хвост выходит из-под руки,
+   линия уходит вправо, а остриё смотрит вниз. Ничего не переворачиваем.
+   ═════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+    .marquee-svg-item:nth-child(2) {
+        width: 200px;
+        left: 54%;
+        bottom: 9%;
+        transform: none;
+    }
+}
