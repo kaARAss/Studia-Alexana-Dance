@@ -239,14 +239,14 @@ export default function DoubleMarquee() {
                 }}
             >
                 <img
-                    src="https://cdn.prod.website-files.com/683703490bc01e1b8c052e06/686b8e614494dac669a4099c_c310914b5a1a573b4c7499e9531f8d52_DE.avif"
+                    src="/assets/photos/dancers-photo.jpg"
                     alt=""
                     loading="lazy"
                     style={{
                         display: 'block',
                         width: '100%',
                         height: 'auto',
-                        aspectRatio: '4 / 5.3',
+                        aspectRatio: '1 / 1',
                         objectFit: 'cover',
                         borderRadius: '22px',
                     }}
